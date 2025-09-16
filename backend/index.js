@@ -6,12 +6,17 @@ dotenv.config();
 
 //Import routes
 const authRoutes = require("./routes/authRoutes");
+const questionRoutes = require("./routes/questionRoutes");
+const answerRoutes = require("./routes/answerRoutes");
+
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 //use routes
 app.use("/api/auth", authRoutes);
+app.use("/api/questions", questionRoutes);
+app.use("/api/answers", answerRoutes);
 
 mongoose
   .connect(process.env.DB_URL)
