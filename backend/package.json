@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.1",
+  "description": "This is a Student Campus Assistant Web app which will help student of college to solve their queries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hemraj,Rudraksh Raina",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.1"
+  }
+}
