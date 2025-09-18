@@ -12,7 +12,7 @@ const getAllColleges = async (req, res) => {
       search,
       state,
       country,
-      isActive = true,
+      isActive,
       page = 1,
       limit = 50,
     } = req.query;
@@ -20,8 +20,12 @@ const getAllColleges = async (req, res) => {
     // 1. Build filter object
     const filter = {};
 
-    if (isActive !== "all") {
-      filter.isActive = isActive === "true";
+    // Fix the isActive filter logic
+    if (isActive !== undefined && isActive !== "all") {
+      filter.isActive = isActive === "true" || isActive === true;
+    } else if (isActive === undefined) {
+      // If no isActive parameter is provided, show only active colleges by default
+      filter.isActive = true;
     }
 
     if (state) {
