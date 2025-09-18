@@ -116,25 +116,5 @@ answerSchema.methods.removeHelpfulMark = async function (userId) {
   return { success: true, message: "Helpful mark removed" };
 };
 
-// METHOD: Set as best answer
-answerSchema.methods.setAsBestAnswer = async function () {
-  // First, remove best answer status from other answers to same question
-  await Answer.updateMany(
-    { question: this.question, _id: { $ne: this._id } },
-    { isBestAnswer: false }
-  );
-
-  // Set this as best answer
-  this.isBestAnswer = true;
-  await this.save();
-
-  // Update the question to mark it as resolved
-  const Question = require("./Question");
-  await Question.findByIdAndUpdate(this.question, {
-    bestAnswer: this._id,
-    isResolved: true,
-  });
-};
-
 // Export the model
 module.exports = mongoose.model("Answer", answerSchema);

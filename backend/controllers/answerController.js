@@ -416,15 +416,28 @@ const setAsBestAnswer = async (req, res) => {
       });
     }
 
-    // 3. Set as best answer
-    await answer.setAsBestAnswer();
+    // 3. Remove best answer status from other answers to same question
+    await Answer.updateMany(
+      { question: answer.question, _id: { $ne: answer._id } },
+      { isBestAnswer: false }
+    );
 
-    // 4. Update the answer author's best answers count
+    // 4. Set this answer as best answer
+    answer.isBestAnswer = true;
+    await answer.save();
+
+    // 5. Update the question to mark it as resolved with this best answer
+    await Question.findByIdAndUpdate(answer.question, {
+      bestAnswer: answer._id,
+      isResolved: true,
+    });
+
+    // 6. Update the answer author's best answers count
     await User.findByIdAndUpdate(answer.author, {
       $inc: { "stats.bestAnswersCount": 1 },
     });
 
-    // 5. If there was a previous best answer, decrement that author's count
+    // 7. If there was a previous best answer, decrement that author's count
     if (
       question.bestAnswer &&
       question.bestAnswer.toString() !== answer._id.toString()

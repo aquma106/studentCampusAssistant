@@ -8,6 +8,7 @@ dotenv.config();
 const authRoutes = require("./routes/authRoutes");
 const questionRoutes = require("./routes/questionRoutes");
 const answerRoutes = require("./routes/answerRoutes");
+const collegeRoutes = require("./routes/collegRoutes");
 
 const app = express();
 app.use(express.json());
@@ -17,6 +18,7 @@ app.use(cors());
 app.use("/api/auth", authRoutes);
 app.use("/api/questions", questionRoutes);
 app.use("/api/answers", answerRoutes);
+app.use("/api/colleges", collegeRoutes);
 
 mongoose
   .connect(process.env.DB_URL)
