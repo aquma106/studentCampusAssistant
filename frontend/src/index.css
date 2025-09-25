@@ -1,94 +1,111 @@
-/* Import Bootstrap CSS */
+/* Import Bootstrap CSS - this gives us all Bootstrap styles */
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-/* Import FontAwesome CSS */
+/* Import FontAwesome CSS - this gives us all FontAwesome icons */
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
-/* Custom styles for Student Campus Assistant */
-:root {
-  --primary-color: #0d6efd;
-  --secondary-color: #6c757d;
-  --success-color: #198754;
-  --danger-color: #dc3545;
-  --warning-color: #ffc107;
-  --info-color: #0dcaf0;
-  --light-color: #f8f9fa;
-  --dark-color: #212529;
-
-  /* Custom colors for categories */
-  --lost-found-color: #dc3545;
-  --roommate-color: #0d6efd;
-  --academic-color: #198754;
-  --campus-info-color: #ffc107;
-  --general-color: #6c757d;
-  --events-color: #6f42c1;
-  --career-color: #fd7e14;
-  --hostel-color: #d63384;
-  --transport-color: #20c997;
-}
-
-/* Set default font family */
+/* Set our custom font and basic body styles */
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     sans-serif;
-  background-color: #f8f9fa;
-  line-height: 1.6;
+  background-color: #f8f9fa; /* Light gray background */
+  line-height: 1.6; /* Better text readability */
+  margin: 0;
+  padding: 0;
 }
 
-/* Custom button styles */
-.btn-custom-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: white;
-  font-weight: 500;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease-in-out;
+/* Custom variables for consistent colors throughout the app */
+:root {
+  --primary-color: #0d6efd; /* Bootstrap's primary blue */
+  --secondary-color: #6c757d; /* Bootstrap's secondary gray */
+  --success-color: #198754; /* Bootstrap's success green */
+  --danger-color: #dc3545; /* Bootstrap's danger red */
+  --warning-color: #ffc107; /* Bootstrap's warning yellow */
+  --info-color: #0dcaf0; /* Bootstrap's info cyan */
+
+  /* Custom colors for question categories */
+  --lost-found-color: #dc3545; /* Red for lost & found */
+  --roommate-color: #0d6efd; /* Blue for roommate */
+  --academic-color: #198754; /* Green for academic help */
+  --campus-info-color: #ffc107; /* Yellow for campus info */
+  --general-color: #6c757d; /* Gray for general questions */
+  --events-color: #6f42c1; /* Purple for events */
+  --career-color: #fd7e14; /* Orange for career */
+  --hostel-color: #d63384; /* Pink for hostel */
+  --transport-color: #20c997; /* Teal for transport */
 }
 
-.btn-custom-primary:hover {
-  background-color: #0b5ed7;
-  border-color: #0b5ed7;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(13, 110, 253, 0.25);
+/* Custom button styles that extend Bootstrap buttons */
+.btn-custom {
+  font-weight: 500; /* Medium font weight */
+  padding: 0.6rem 1.5rem; /* More padding than default */
+  border-radius: 8px; /* Slightly rounded corners */
+  transition: all 0.2s ease; /* Smooth hover effects */
 }
 
-.btn-outline-custom {
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-  font-weight: 500;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease-in-out;
-}
-
-.btn-outline-custom:hover {
-  background-color: var(--primary-color);
-  color: white;
-  transform: translateY(-1px);
+.btn-custom:hover {
+  transform: translateY(-1px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow on hover */
 }
 
 /* Custom card styles */
 .card-custom {
-  border: none;
-  border-radius: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease-in-out;
+  border: none; /* Remove default border */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  transition: all 0.3s ease; /* Smooth hover transition */
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 .card-custom:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
 }
 
-.card-header-custom {
-  background-color: #fff;
+/* Navigation bar custom styles */
+.navbar-custom {
+  background-color: white !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1rem 0;
   border-bottom: 1px solid #e9ecef;
-  border-radius: 1rem 1rem 0 0 !important;
-  padding: 1.5rem;
 }
 
-/* Badge styles for categories */
+.navbar-brand-custom {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--primary-color) !important;
+}
+
+.nav-link-custom {
+  font-weight: 500;
+  color: #495057 !important;
+  margin: 0 0.3rem;
+  padding: 0.6rem 1rem !important;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-link-custom:hover {
+  background-color: #f8f9fa;
+  color: var(--primary-color) !important;
+}
+
+/* Form input custom styles */
+.form-control-custom {
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.form-control-custom:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+  outline: none;
+}
+
+/* Badge styles for different question categories */
 .badge-lost-found {
   background-color: var(--lost-found-color);
   color: white;
@@ -134,70 +151,71 @@ body {
   color: white;
 }
 
-/* Custom form styles */
-.form-control-custom {
-  border-radius: 0.5rem;
-  border: 2px solid #e9ecef;
-  padding: 0.75rem 1rem;
-  font-size: 0.95rem;
-  transition: all 0.2s ease-in-out;
+/* Question card specific styles */
+.question-card {
+  border-left: 4px solid var(--primary-color); /* Left border accent */
+  margin-bottom: 1.5rem;
 }
 
-.form-control-custom:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+.question-card.resolved {
+  border-left-color: var(--success-color); /* Green border for resolved */
+  background-color: #f8fff9; /* Very light green background */
 }
 
-.form-select-custom {
-  border-radius: 0.5rem;
-  border: 2px solid #e9ecef;
-  padding: 0.75rem 1rem;
-  font-size: 0.95rem;
-  transition: all 0.2s ease-in-out;
+.question-title {
+  color: #212529;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
-.form-select-custom:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+.question-title:hover {
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
-/* Navigation styles */
-.navbar-custom {
-  background-color: white !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  padding: 1rem 0;
+.question-content {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-.navbar-brand-custom {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--primary-color) !important;
+.question-meta {
+  font-size: 0.875rem;
+  color: #6c757d;
 }
 
-.nav-link-custom {
-  font-weight: 500;
-  color: var(--dark-color) !important;
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem !important;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease-in-out;
+/* Answer card styles */
+.answer-card {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
 }
 
-.nav-link-custom:hover {
-  background-color: var(--light-color);
-  color: var(--primary-color) !important;
+.answer-card.best-answer {
+  border-color: var(--success-color);
+  background-color: #f8fff9;
+  position: relative;
 }
 
-.nav-link-custom.active {
-  background-color: var(--primary-color);
-  color: white !important;
+.best-answer-badge {
+  background-color: var(--success-color);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  position: absolute;
+  top: -8px;
+  right: 15px;
 }
 
 /* Loading spinner */
 .spinner-custom {
   width: 2rem;
   height: 2rem;
-  border: 3px solid var(--light-color);
+  border: 3px solid #f8f9fa;
   border-top: 3px solid var(--primary-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -212,75 +230,19 @@ body {
   }
 }
 
-/* Question card specific styles */
-.question-card {
-  border-left: 4px solid var(--primary-color);
-}
-
-.question-card.resolved {
-  border-left-color: var(--success-color);
-  background-color: #f8fff9;
-}
-
-.question-meta {
-  font-size: 0.875rem;
-  color: var(--secondary-color);
-}
-
-.question-title {
-  color: var(--dark-color);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.question-title:hover {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-.question-content {
-  color: #666;
-  line-height: 1.6;
-}
-
-/* Answer styles */
-.answer-card {
-  border: 1px solid #e9ecef;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.answer-card.best-answer {
-  border-color: var(--success-color);
-  background-color: #f8fff9;
-}
-
-.best-answer-badge {
-  background-color: var(--success-color);
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-/* Helpful count styles */
-.helpful-count {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  color: var(--secondary-color);
-  font-size: 0.875rem;
-}
-
+/* Helpful button styles */
 .helpful-btn {
   background: none;
   border: none;
-  color: var(--secondary-color);
+  color: #6c757d;
   cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  transition: all 0.2s ease-in-out;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .helpful-btn:hover {
@@ -291,44 +253,61 @@ body {
 .helpful-btn.marked {
   color: var(--primary-color);
   background-color: rgba(13, 110, 253, 0.1);
+  font-weight: 500;
 }
 
-/* Stats display */
+/* User stats display */
 .stats-card {
   background: linear-gradient(135deg, var(--primary-color), #0b5ed7);
   color: white;
-  border-radius: 1rem;
+  border-radius: 12px;
   padding: 1.5rem;
+  text-align: center;
 }
 
 .stats-number {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  display: block;
 }
 
 .stats-label {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   opacity: 0.9;
+  font-weight: 500;
 }
 
-/* Responsive adjustments */
+/* Alert/notification styles */
+.alert-custom {
+  border-radius: 8px;
+  border: none;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive design adjustments */
 @media (max-width: 768px) {
   .card-custom {
-    border-radius: 0.5rem;
     margin-bottom: 1rem;
+    border-radius: 8px;
   }
 
-  .btn-custom-primary {
+  .btn-custom {
     padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
 
   .navbar-brand-custom {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+  }
+
+  .stats-number {
+    font-size: 2rem;
   }
 }
 
-/* Utility classes */
+/* Utility classes for consistent spacing and styling */
 .text-muted-custom {
   color: #6c757d !important;
 }
@@ -342,5 +321,5 @@ body {
 }
 
 .shadow-custom {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
 }
